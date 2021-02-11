@@ -1,0 +1,37 @@
+<div style="height: 56px;width: 100vw;display: flex;">
+  <span style="flex: 1 1 auto;text-align: center;"><h2>Welcome to Admins Page!</h2></span>
+  <button style="margin: auto 20px auto 10px" (click)="logout()">Logout</button>
+</div>
+<div
+  style="text-align: center; border: 1px solid;border-radius: 10px; padding: 25px;min-height: 500px;width: 500px;margin: auto;">
+  <h2>Users Subscribed</h2><button (click)="adduser()">Add new user</button>
+  <div style="margin-top: 20px;padding: 20px;">
+
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Role</th>
+        <th>Total Experience</th>
+        <th>Join Date</th>
+        <th>Remove</th>
+        <th>Subscription</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of memberList">
+          <td>{{user.name}}</td>
+          <td>{{user.salary}}</td>
+          <td>{{user.role}}</td>
+          <td>{{user.totalExperience}}</td>
+          <td>{{user.joinDate | date:'yyyy-MM-dd hh:mm:ss aaa' }}</td>
+          <td><button (click)="removeUser(user)">Remove User</button></td>
+          <td><button (click)="viewSubscription(user)">View Subscription</button>
+            <button (click)="addSubscription(user)">Add Subscription</button>
+            <button (click)="deleteSubscription(user)">Remove Subscription</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
